@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+    Электронная библиотека - Главная
+{% endblock %}
+
+{% block css %}
+	{% static 'css/main-css.css' %}
+{% endblock %}
+
+{% block content %}
+<body>
+	<div class="header-cont">
+		
+	</div>
+
+	<div class="contents">
+		<form method="POST">
+            {% csrf_token %}
+			<div class="search">
+				<div class="search-text">
+					<input type="text" name="search_string" placeholder="Что хотите найти?">
+				</div>
+				<div><input type="submit" name="" class="search-button"></div>
+			</div>
+		</form>
+
+		<div class="content">
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</div>
+	</div>
+	
+</body>
+{% endblock %}

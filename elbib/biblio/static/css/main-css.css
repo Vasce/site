@@ -1,0 +1,51 @@
+.header-cont {
+	max-width: 1000px;
+	min-width: 320px;
+	padding: 20px;
+	margin: 0 auto;
+}
+
+#head{
+	text-align: center;
+}
+
+.contents{
+	margin: 0 150px 0 150px;
+	min-width: 100px;
+}
+
+.search {
+	display: flex;
+	justify-content: center;
+}
+
+input{
+	width: 100%;
+	height: 30px;
+	font-size: 18px;
+}
+
+input :active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+.search-text{
+	width: 620px;
+}
+
+.search-button{
+	background: url(search.png) no-repeat center center;
+	background-size: contain;
+	margin-left: 5px;
+	color: transparent;
+	height: 30px;
+	width: 50px;
+	border: none;
+	cursor: pointer
+}
+
+.content{
+	text-align: center;
+	margin-top: 50px;
+}

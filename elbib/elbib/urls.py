@@ -16,6 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from biblio.views import SignUpView, SignInView, MainView, PageView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("signup", SignUpView.as_view(), name="signup"),
+    path("signin", SignInView.as_view(), name="signin"),
+    path("main", MainView.as_view(), name="main"),
+    path("page", PageView.as_view(), name="page"),
 ]
