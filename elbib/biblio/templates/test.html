@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Book</h2>
+    <ul>
+
+        <!-- <li>{{ title }}</li>
+        <li>{{ author }}</li> -->
+
+        {% for value in data %}
+            <li>{{ value.title }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

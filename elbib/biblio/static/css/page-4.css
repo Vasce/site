@@ -1,30 +1,36 @@
-body{
+.fix{
 	max-width: 1000px;
 	min-width: 320px;
 	padding: 20px;
 	margin: 0 auto;
 }
 
+.backgr{
+	display: flex;
+	background-color: antiquewhite;
+	width: 100%;
+}
+
 .header-cont {
+	display: inline-flex;
 	max-width: 1000px;
 	min-width: 320px;
 	margin: 0 auto;
 }
 
-#head{
-	text-align: center;
-}
-
-.pic img {
-	width: 70px;
+#logotype{
 	display: flex;
 }
 
 .search {
 	display: flex;
-	justify-content: center;
-	margin: 0 150px 0 150px;
+	align-items: center;
 	min-width: 100px;
+}
+
+.pic img {
+	width: 70px;
+	display: flex;
 }
 
 input{
@@ -51,6 +57,23 @@ input :active, :hover, :focus {
 	width: 50px;
 	border: none;
 	cursor: pointer
+}
+
+.profile{
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.profile-name{
+	display: flex;
+	text-align: right;
+}
+
+.profile-logo{
+	display: flex;
+	height: 40px;
 }
 
 hr{

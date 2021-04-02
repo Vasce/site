@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.views import View
-from django.http import HttpResponseForbidden, HttpResponseNotFound
+from django.http import HttpResponseForbidden, HttpResponseNotFound, HttpResponse
+from django.views import generic
 
 from .models import Content
 
@@ -45,7 +46,22 @@ class MainView(View):
         return render(request, "main.html")
 
     def post(self, request):
-        string = request.POST(['search_string'])
+        
+        string = request.POST['search_string']
+    
+    
+        queryset = Content.objects.filter(title__contains = string).values()
+        # data = []
+        # context = {'test': queryset}
+        # print(queryset)
+        for i in queryset:
+            data = i
+            # data.add(i)
+            print(i)
+        # print(context)
+     
+        # return HttpResponse(data, "test.html")
+        return render(request, "test.html", data)
 
 class PageView(View):
     def get(self, request):
@@ -53,3 +69,31 @@ class PageView(View):
 
 
 
+class TestView(generic.ListView):
+    template_name = 'test.html'
+
+    def get_queryset(self):
+        string = request.POST['search_string']
+        # print(string)
+        a = Content.objects.all()
+        queryset = a.filter(title__contains = string)
+        # print(queryset)
+        return queryset
+
+    def get(self, request):
+        return render(request, "main.html")
+
+    def post(self, request):
+        
+        string = request.POST['search_string']
+        print(string)
+    
+        a = Content.objects.filter(title__contains = string)
+        print(a)
+        # queryset = a.
+        # for i in queryset.values():
+        #     t = i
+            # print(t['title'])
+     
+            
+        return a
