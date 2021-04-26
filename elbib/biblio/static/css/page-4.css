@@ -56,7 +56,7 @@ input :active, :hover, :focus {
 	height: 30px;
 	width: 50px;
 	border: none;
-	cursor: pointer
+	cursor: pointer;
 }
 
 .profile{
@@ -66,14 +66,19 @@ input :active, :hover, :focus {
 	justify-content: flex-end;
 }
 
-.profile-name{
+#profilename{
 	display: flex;
 	text-align: right;
+	margin-left: 15px;
 }
 
-.profile-logo{
+#profilelogo{
 	display: flex;
 	height: 40px;
+	border-radius: 100px;
+	border: 1px solid sienna;
+	margin-left: 10px;
+	cursor: pointer;
 }
 
 hr{

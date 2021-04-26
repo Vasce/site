@@ -22,7 +22,7 @@ class SignInView(View):
         if user:
             login(request, user)
         
-            return redirect(reverse("main"))
+            return redirect(reverse("page"))
 
 
 class SignUpView(View):
@@ -37,7 +37,7 @@ class SignUpView(View):
         if pass_retry == password:
             user = User.objects.create_user(username=username, password=password)
             login(request, user)
-            return redirect(reverse("main"))
+            return redirect(reverse("page"))
         else:
             return render(request, "signup.html")
 
