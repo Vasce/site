@@ -6,6 +6,7 @@ from django.http import HttpResponseForbidden, HttpResponseNotFound, HttpRespons
 from django.views import generic
 
 from .models import Content
+from django.db.models import Q
 
 # Create your views here.
 
@@ -65,35 +66,86 @@ class MainView(View):
 
 class PageView(View):
     def get(self, request):
-        return render(request, "page.html")
-
+        if request.user.is_authenticated:
+            return render(request, "page.html")
+        else:
+            return redirect(reverse("signin"))
 
 
 class TestView(generic.ListView):
+    model = Content
+    context_object_name = 'test'
+    # queryset = Content.objects.filter(author='Светлана')
     template_name = 'test.html'
 
-    def get_queryset(self):
-        string = request.POST['search_string']
-        # print(string)
-        a = Content.objects.all()
-        queryset = a.filter(title__contains = string)
-        # print(queryset)
-        return queryset
-
     def get(self, request):
-        return render(request, "main.html")
+        string = request.GET['search_string']
 
+        print(string)
+        a = Content.objects.all()
+        queryset = Content.objects.filter(Q(author__icontains=string) | Q(title__icontains=string))
+        # queryset = queryset1 + queryset2
+        print('>>>>>>>>>>', queryset)
+        return render (request, "test.html", {'object_list': queryset})
+    
     def post(self, request):
-        
+
         string = request.POST['search_string']
         print(string)
     
-        a = Content.objects.filter(title__contains = string)
-        print(a)
-        # queryset = a.
-        # for i in queryset.values():
-        #     t = i
-            # print(t['title'])
-     
-            
+        a = self.get_queryset(request)
         return a
+
+    def get_queryset(self, request,  *args, **kwargs):
+        string = request.GET['search_string']
+        print('imhe')
+        a = Content.objects.all()
+        queryset = Content.objects.filter(author=string)
+        return queryset
+    
+    # def post(self, request):
+
+    #     string = request.POST['search_string']
+    #     print(string)
+    
+    #     a = Content.objects.filter(title__contains = string)
+    #     print(a)
+    #     # queryset = a.
+    #     # for i in queryset.values():
+    #     #     t = i
+    #         # print(t['title'])     
+    #     return a
+
+    # def get_context_data(self, **kwargs):
+    #     # Call the base implementation first to get a context
+    #     context = super().get_context_data(**kwargs)
+    #     # Add in a QuerySet of all the books
+    #     context['content_list'] = Content.objects.all()
+    #     return context
+
+# class TestView(generic.ListView):
+#     template_name = 'test.html'
+
+    # def get_queryset(self, request):
+    #     string = request.POST['search_string']
+    #     # print(string)
+    #     a = Content.objects.all()
+    #     queryset = a.filter(title__contains = string)
+    #     # print(queryset)
+    #     return queryset
+
+#     def get(self, request):
+#         return render(request, "main.html")
+
+#     def post(self, request):
+        
+#         string = request.POST['search_string']
+#         print(string)
+    
+#         a = Content.objects.filter(title__contains = string)
+#         print(a)
+#         # queryset = a.
+#         # for i in queryset.values():
+#         #     t = i
+#             # print(t['title'])     
+#         return a
