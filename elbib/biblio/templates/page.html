@@ -12,6 +12,19 @@
 
 {% block content %}
 <body>
+	<input type="checkbox" id="nav-toggle" hidden>
+	<nav class="nav">
+		<label for="nav-toggle" class="nav-toggle" onclick></label>
+		<ul>
+			<li><a href="#">На главную</a>
+			<li><a href="#">Избранное</a> 
+			<li><a href="#">Справка</a> 
+			<li><a href="#">Выход</a>
+		</ul>
+	</nav>
+		
+	<div class="mask-content"></div>
+
 	<div class="backgr">
 		<div class="header-cont fix">
 			<div id="logotype">
@@ -28,40 +41,13 @@
 				</div>
 			</form>
 			
-			<div class="profile">
-				<!-- <div>
-					<img id="profilelogo" src="static/css/profile-2.jpeg">
-				</div> -->
+			<div class="profile"> 
+				<div>
+					<img id="profile-logo" src="/static/css/profile2.jpeg">
+				</div> 
 
-				<div class="profile dropdown">
-					<img onclick="myFunction()" class="dropbtn" id="profile-logo" src="/static/css/profile-2.jpeg">
-						<div id="myDropdown" class="dropdown-content">
-						   <a href="#like">Избранное</a><hr style="background-color: black; height: 1px; margin: 0">
-						   <a href="#exit">Выход</a>
-					   </div>
-   
-				   <script>
-					   /* When the user clicks on the button, 
-					   toggle between hiding and showing the dropdown content */
-					   function myFunction() {
-						   document.getElementById("myDropdown").classList.toggle("show");
-					   }
-   
-					   // Close the dropdown if the user clicks outside of it
-					   window.onclick = function(event) {
-						 if (!event.target.matches('.dropbtn')) {
-   
-						   var dropdowns = document.getElementsByClassName("dropdown-content");
-						   var i;
-						   for (i = 0; i < dropdowns.length; i++) {
-							 var openDropdown = dropdowns[i];
-							 if (openDropdown.classList.contains('show')) {
-							   openDropdown.classList.remove('show');
-							 }
-						   }
-						 }
-					   }
-				   </script>
+				 
+						
 
 					<div id="profilename">
 						<p>Васильева<br>Виктория</p>
