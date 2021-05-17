@@ -18,15 +18,16 @@
 				<img id="logo" src="static/css/logo.png">
 			</div>
 
-			<div class="search ">
+			<form method="GET" class="search">
+				{% csrf_token %}
 				<div class="search-text">
-					<input type="text" name="" placeholder="Что хотите найти?">
+					<input type="text" name="search_string" placeholder="Что хотите найти?">
 				</div>
 
 				<div>
 					<input type="submit" name="" class="search-button">
 				</div>
-			</div>
+			</form>
 			
 			<div class="profile">
 				<!-- <div>
@@ -72,21 +73,28 @@
 	</div>
 
 	<div class="block-book fix">
-		<div class="book1">
-			<hr>
-			<div class="cont">
-				<div class="pic">
-					<img src="static/css/painbook.png">
-				</div>
+		<ul>
+			{% for content in object_list %}
 
-				<div class="title-author">
-					<div id="author" style="color: black;">Автор</div>
-					<div id="title">Название</div>
-					<div id="bo">Библиографическое описание</div>
-				</div>
-			</div>
-			<hr>
-		</div>	
+				<div class="book1">
+					<hr>
+					<div class="cont">
+						<div class="pic">
+							<img src="{{ content.image }}">
+						</div>
+		
+						<div class="title-author">
+							<div id="author" style="color: black;">{{ content.author }}</div>
+							<div id="title">{{ content.title }}</div>
+							<div id="bo">{{ content.bo }}</div>
+						</div>
+					</div>
+					<hr>
+				</div>	
+
+
+			{% endfor %}
+		</ul>
 	</div>
 
 </body>
