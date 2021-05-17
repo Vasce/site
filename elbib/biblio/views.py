@@ -51,7 +51,7 @@ class MainView(View):
             if 'search_string' not in request.GET:
                 return render(request, "main.html")
             else:
-                return redirect(reverse("page", kwargs=request.GET), kwargs=request.GET)
+                return redirect(reverse("page", kwargs=request.GET)
         else:
             return redirect(reverse("signin"))
 
