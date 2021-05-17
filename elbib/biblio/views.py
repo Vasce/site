@@ -51,7 +51,9 @@ class MainView(View):
             if 'search_string' not in request.GET:
                 return render(request, "main.html")
             else:
-                return redirect(reverse("page", kwargs=request.GET)
+                # return redirect(reverse("page", kwargs=request.GET))
+                search_string = request.GET['search_string']
+                return render(request, 'page.html',)
         else:
             return redirect(reverse("signin"))
 
@@ -67,20 +69,24 @@ class PageView(generic.ListView):
     model = Content
     context_object_name = 'page'
     template_name = 'page.html'
+    def get_queryset(self):
+        query = self.request.GET.get('search_string')
+        return Content.objects.filter(Q(author__icontains=query) | Q(title__icontains=query))
 
-    def get(self, request):
-        if 'search_string' in request.GET.keys():
-            print('>>>>>>>>>>> IF >>>>>>>>>>>>>')
-            string = request.GET['search_string']
+    # def get(self, request):
+    #     print(request.GET.keys(), 'dasdasdasdassdasdasdasd2222222222222222222')
+    #     print('>>>>>>>>>>> ELSE >>>>>>>>>>>>>')
+    #     return render(request, "page.html")
+        # if 'search_string' in request.GET.keys():
+        #     print('>>>>>>>>>>> IF >>>>>>>>>>>>>')
+        #     string = request.GET['search_string']
 
-            print(string)
-            a = Content.objects.all()
-            queryset = Content.objects.filter(Q(author__icontains=string) | Q(title__icontains=string))
-            return render(request, "page.html", {'object_list': queryset})
-        else:
-            print(request.GET.keys(), 'dasdasdasdassdasdasdasd2222222222222222222')
-            print('>>>>>>>>>>> ELSE >>>>>>>>>>>>>')
-            return render(request, "page.html")
+        #     print(string)
+        #     a = Content.objects.all()
+        #     queryset = Content.objects.filter(Q(author__icontains=string) | Q(title__icontains=string))
+        #     return render(request, "page.html", {'object_list': queryset})
+        # else:
+           
     
     # def post(self, request):
 

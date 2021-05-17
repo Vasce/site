@@ -23,6 +23,5 @@ urlpatterns = [
     path("signup", SignUpView.as_view(), name="signup"),
     path("signin", SignInView.as_view(), name="signin"),
     path("", MainView.as_view(), name="main"),
-    path("page", PageView.as_view(), name="page"),
-    # path("test", TestView.as_view()),
+    path("page/", PageView.as_view(), name='page'),
 ]

@@ -19,8 +19,7 @@
 	</div>
 
 	<div class="contents">
-		<form method="GET">
-            {% csrf_token %}
+		<form method="GET" action="{% url 'page' %}">
 			<div class="search">
 				<div class="search-text">
 					<input type="text" name="search_string" placeholder="Что хотите найти?">

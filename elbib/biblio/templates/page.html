@@ -15,11 +15,10 @@
 	<div class="backgr">
 		<div class="header-cont fix">
 			<div id="logotype">
-				<img id="logo" src="static/css/logo.png">
+				<img id="logo" src="/static/css/logo.png">
 			</div>
 
-			<form method="GET" class="search">
-				{% csrf_token %}
+			<form method="GET" class="search" action="{% url 'page' %}">
 				<div class="search-text">
 					<input type="text" name="search_string" placeholder="Что хотите найти?">
 				</div>
@@ -35,7 +34,7 @@
 				</div> -->
 
 				<div class="profile dropdown">
-					<img onclick="myFunction()" class="dropbtn" id="profile-logo" src="static/css/profile-2.jpeg">
+					<img onclick="myFunction()" class="dropbtn" id="profile-logo" src="/static/css/profile-2.jpeg">
 						<div id="myDropdown" class="dropdown-content">
 						   <a href="#like">Избранное</a><hr style="background-color: black; height: 1px; margin: 0">
 						   <a href="#exit">Выход</a>
@@ -75,7 +74,6 @@
 	<div class="block-book fix">
 		<ul>
 			{% for content in object_list %}
-
 				<div class="book1">
 					<hr>
 					<div class="cont">
