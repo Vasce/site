@@ -10,8 +10,7 @@
 	{% static 'css/page-4.css' %}
 {% endblock %}
 
-{% block content %}	
-
+{% block content %}
 <body>
 	<div class="backgr">
 		<div class="header-cont fix">
@@ -29,58 +28,61 @@
 				</div>
 			</div>
 			
-			<div class="profile dropdown">
-			 	<img onclick="myFunction()" class="dropbtn" id="profile-logo" src="profile 2.jpeg">
-			 		<div id="myDropdown" class="dropdown-content">
-					    <a href="#like">Избранное</a><hr style="background-color: black; height: 1px; margin: 0">
-					    <a href="#exit">Выход</a>
+			<div class="profile">
+				<!-- <div>
+					<img id="profilelogo" src="static/css/profile-2.jpeg">
+				</div> -->
+
+				<div class="profile dropdown">
+					<img onclick="myFunction()" class="dropbtn" id="profile-logo" src="static/css/profile-2.jpeg">
+						<div id="myDropdown" class="dropdown-content">
+						   <a href="#like">Избранное</a><hr style="background-color: black; height: 1px; margin: 0">
+						   <a href="#exit">Выход</a>
+					   </div>
+   
+				   <script>
+					   /* When the user clicks on the button, 
+					   toggle between hiding and showing the dropdown content */
+					   function myFunction() {
+						   document.getElementById("myDropdown").classList.toggle("show");
+					   }
+   
+					   // Close the dropdown if the user clicks outside of it
+					   window.onclick = function(event) {
+						 if (!event.target.matches('.dropbtn')) {
+   
+						   var dropdowns = document.getElementsByClassName("dropdown-content");
+						   var i;
+						   for (i = 0; i < dropdowns.length; i++) {
+							 var openDropdown = dropdowns[i];
+							 if (openDropdown.classList.contains('show')) {
+							   openDropdown.classList.remove('show');
+							 }
+						   }
+						 }
+					   }
+				   </script>
+
+					<div id="profilename">
+						<p>Васильева<br>Виктория</p>
 					</div>
-
-				<script>
-					/* When the user clicks on the button, 
-					toggle between hiding and showing the dropdown content */
-					function myFunction() {
-					    document.getElementById("myDropdown").classList.toggle("show");
-					}
-
-					// Close the dropdown if the user clicks outside of it
-					window.onclick = function(event) {
-					  if (!event.target.matches('.dropbtn')) {
-
-					    var dropdowns = document.getElementsByClassName("dropdown-content");
-					    var i;
-					    for (i = 0; i < dropdowns.length; i++) {
-					      var openDropdown = dropdowns[i];
-					      if (openDropdown.classList.contains('show')) {
-					        openDropdown.classList.remove('show');
-					      }
-					    }
-					  }
-					}
-				</script>
-	
-
-
-				 <div id="profile-name">
-				 	<p>Васильева<br>Виктория</p>
-				 </div>
+				</div>
 			</div>
-
-		</div>
-	</div>	
+		</div>	
+	</div>
 
 	<div class="block-book fix">
 		<div class="book1">
 			<hr>
 			<div class="cont">
 				<div class="pic">
-					<img src="painbook.png">
+					<img src="static/css/painbook.png">
 				</div>
 
 				<div class="title-author">
-					<div id="author">Пушкин</div>
-					<div id="title">Пророк</div>
-					<div id="bo">Пророк / А.С. Пушкин. - Санкт-Петербург, 2021. - 300с. - ISBN: 1234456789. - текст : непосредственный.</div>
+					<div id="author" style="color: black;">Автор</div>
+					<div id="title">Название</div>
+					<div id="bo">Библиографическое описание</div>
 				</div>
 			</div>
 			<hr>
