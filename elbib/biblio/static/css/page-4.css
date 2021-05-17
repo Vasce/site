@@ -153,5 +153,23 @@ hr{
 .show {display: block;}
 
 
+.btn {
+	display: flex;
+	margin: 10px 0  5px 10px;
+	width: 135px;
+	justify-content: center;
+    background-color: Blue;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+    background-color: RoyalBlue;
+}
+
 
 
