@@ -13,6 +13,10 @@ body {
 	text-align: center;
 }
 
+main{
+	width: 450px;
+}
+
 input{
 	height: 40px;
 	width: 100%;
@@ -36,8 +40,8 @@ input :active, :hover, :focus {
 	background: antiquewhite;
   	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   	border-radius: 20px;
-  	max-width: 400px;
   	padding: 5px 30px 30px;
+	height: 360px;
 	
 }
 
@@ -74,3 +78,24 @@ input :active, :hover, :focus {
 	margin-bottom: 10px;
 }
 
+.btnsignin{
+	display: flex;
+	justify-content: center;
+}
+
+.btnin{
+	display: inline-block;
+	width: 135px;
+	justify-content: center;
+    background-color:  #3d3434f3;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+	margin: 50px 15px 0 15px;
+    font-size: 16px;
+    cursor: pointer;
+}	
+
+.btnin:hover {
+    background-color: #3d3434ad;
+}
