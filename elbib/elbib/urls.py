@@ -24,4 +24,7 @@ urlpatterns = [
     path("signin", SignInView.as_view(), name="signin"),
     path("", MainView.as_view(), name="main"),
     path("page/", PageView.as_view(), name='page'),
+
+    path("logout", View.as_view(next_page='signin'), name='exit'),
 ]
+
