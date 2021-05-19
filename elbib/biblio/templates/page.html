@@ -74,11 +74,14 @@
 	<div class="block-book fix">
 		<ul>
 			{% for content in object_list %}
+			<a href='{{ content.book.url }}'>test</a>
+			<img src="{% static content.image.url %}">
+
 				<div class="book1">
 					<hr>
 					<div class="cont">
 						<div class="pic">
-							<img src="{% static content.image %}">
+							<img src="{{  content.image.url }}">
 						</div>
 		
 						<div class="title-author">
@@ -88,8 +91,8 @@
 						</div>
 
 						<div>
-							<button class="btn">Читать</button>
-							<button class="btn">Скачать</button>
+							<a class="btn" href='{{ content.book.url }}' target="_blank" >Читать</a>
+							<a href='{{ content.book.url }}' class="btn" download>Скачать</a>
 						</div>
 
 					</div>

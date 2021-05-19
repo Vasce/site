@@ -16,7 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
-
+from django.conf import settings
+from django.conf.urls.static import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from biblio.views import SignUpView, SignInView, MainView, PageView, SpravkaView, PoiskView
 
 urlpatterns = [
@@ -28,5 +30,5 @@ urlpatterns = [
     path("account/", include('django.contrib.auth.urls')),
     path("spravka", SpravkaView.as_view(), name="spravka"),
     path("poisk", PoiskView.as_view(), name="poisk")
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + staticfiles_urlpatterns()
 
