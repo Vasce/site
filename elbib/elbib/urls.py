@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
 
-from biblio.views import SignUpView, SignInView, MainView, PageView
+from biblio.views import SignUpView, SignInView, MainView, PageView, SpravkaView, PoiskView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,6 +25,8 @@ urlpatterns = [
     path("signin", SignInView.as_view(), name="signin"),
     path("", MainView.as_view(), name="main"),
     path("page/", PageView.as_view(), name='page'),
-    path("account/", include('django.contrib.auth.urls'))
+    path("account/", include('django.contrib.auth.urls')),
+    path("spravka", SpravkaView.as_view(), name="spravka"),
+    path("poisk", PoiskView.as_view(), name="poisk")
 ]
 

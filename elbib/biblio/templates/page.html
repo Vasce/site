@@ -16,10 +16,10 @@
 	<nav class="nav">
 		<label for="nav-toggle" class="nav-toggle" onclick></label>
 		<ul>
-			<li><a href="#">Расширенный поиск</a>
-			<li><a href="#">На главную</a>
+			<li><a href="{% url 'poisk' %}">Расширенный поиск</a>
+			<li><a href="{% url 'main' %}">На главную</a>
 			<li><a href="#">Избранное</a> 
-			<li><a href="#">Справка</a> 
+			<li><a href="{% url 'spravka' %}">Справка</a> 
 			<li><a href="{% url 'logout' %}">Выход</a>
 		</ul>
 	</nav>
@@ -64,7 +64,7 @@
 						
 
 					<div id="profilename">
-						<p>Васильева<br>Виктория</p>
+						<p>{{ request.users }}</p>
 					</div>
 				</div>
 			</div>
