@@ -1,14 +1,23 @@
-from django.shortcuts import render, redirect, reverse
-from django.contrib.auth.models import User
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponseRedirect
+# from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.views import View
 from django.http import HttpResponseForbidden, HttpResponseNotFound, HttpResponse
 from django.views import generic
 
-from .models import Content
+from .models import Content, User
 from django.db.models import Q
 
 # Create your views here.
+
+def add_to_favorite(request, pk):
+    content = get_object_or_404(Content, pk=pk)
+    user = get_object_or_404(User, user=request.user)
+    print(user)
+    # user = request.user
+    user.favorite.add(content)
+    user.save()
+    return  HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 class SignInView(View):
     def get(self, request):

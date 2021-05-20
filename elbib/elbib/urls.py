@@ -19,7 +19,7 @@ from django.urls.conf import include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from biblio.views import SignUpView, SignInView, MainView, PageView, SpravkaView, PoiskView
+from biblio.views import SignUpView, SignInView, MainView, PageView, SpravkaView, PoiskView, add_to_favorite
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,6 +29,7 @@ urlpatterns = [
     path("page/", PageView.as_view(), name='page'),
     path("account/", include('django.contrib.auth.urls')),
     path("spravka", SpravkaView.as_view(), name="spravka"),
-    path("poisk", PoiskView.as_view(), name="poisk")
+    path("poisk", PoiskView.as_view(), name="poisk"),
+    path('favorite_add/<int:pk>', add_to_favorite, name='add'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + staticfiles_urlpatterns()
 

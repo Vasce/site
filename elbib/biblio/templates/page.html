@@ -89,6 +89,7 @@
 						<div>
 							<a class="btn" href='{{ content.book.url }}' target="_blank" >Читать</a>
 							<a class="btn" href='{{ content.book.url }}' download>Скачать</a>
+							<a href="{% url 'add' pk=content.pk %}">В избранное</a>
 						</div>
 
 					</div>
