@@ -12,25 +12,46 @@
 
 {% block content %}
     <form>
-        <div class="search">
-            <input type="search" name="search_author" placeholder="Автор">
-            <input type="search" name="search_title" placeholder="Название">
+        <div class="backgr">
+            <div class="header-cont fix">
+                <div id="favorite">
+                    Избранное
+                </div>
+            </div>
         </div>
-
-        <p><select name="razdel" class="razdel">
-            <optgroup label="Прикладная информатика">
-            <option value="r1">Сайтостроение</option>
-            <option value="r2">Алгоритмизация</option>
-            <option value="r3">ОСиС</option>
-            </optgroup>
-            <optgroup label="Библиотечное дело">
-            <option value="u1">БИС</option>
-            <option value="u2">АСОД</option>
-            <option value="u3">БФ</option>
-            </optgroup>
-        </select></p>
-
-        <input type="submit" name="" class="btnsearch"> 
-
+    
+        <div class="profile"> 
+            <div>
+                <img id="profile-logo" src="/static/css/profile2.jpeg">
+            </div>     
+    
+            <div id="profilename">
+                <p> {{request.user}}</p>
+            </div>
+        </div>
+    
+        <form> 
+            <div class="fix">
+                <div class="search">
+                    <input type="search" name="search_author" placeholder="Автор">
+                    <input type="search" name="search_title" placeholder="Название">
+                </div>
+    
+                <p><select name="razdel" class="razdel">
+                    <optgroup label="Прикладная информатика">
+                    <option value="r1">Сайтостроение</option>
+                    <option value="r2">Алгоритмизация</option>
+                    <option value="r3">ОСиС</option>
+                    </optgroup>
+                    <optgroup label="Библиотечное дело">
+                    <option value="u1">БИС</option>
+                    <option value="u2">АСОД</option>
+                    <option value="u3">БФ</option>
+                    </optgroup>
+                </select></p>
+    
+                <input type="submit" name="" class="btnsearch"> 
+            </div>
+        </form>
     </form>
 {% endblock %}

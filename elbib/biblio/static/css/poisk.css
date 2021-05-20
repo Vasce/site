@@ -1,3 +1,48 @@
+.fix{
+    max-width: 1000px;
+    min-width: 320px;
+    padding: 20px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
+
+.backgr{
+    display: flex;
+    background-color: rgb(231, 215, 193);
+    width: 100%;
+}
+
+.header-cont {
+    display: inline-flex;
+    max-width: 1000px;
+    min-width: 320px;
+    margin: 0 auto;
+}
+
+.profile{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#profilename{
+    display: flex;
+    text-align: right;
+    margin-left: 15px;
+    border-left: 2px solid rgb(97, 89, 73);  
+    padding-left: 10px; 
+}
+
+#profile-logo{
+    display: flex;
+    height: 40px;
+    border-radius: 100px;
+    border: 1px solid #3d3434f3;
+    margin-left: 10px;
+}
 
 
 
