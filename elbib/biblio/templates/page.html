@@ -11,6 +11,7 @@
 {% endblock %}
 
 {% block content %}
+
 <body>
 	<input type="checkbox" id="nav-toggle" hidden>
 	<nav class="nav">
@@ -58,24 +59,20 @@
 			<div class="profile"> 
 				<div>
 					<img id="profile-logo" src="/static/css/profile2.jpeg">
-				</div> 
-
-				 
+				</div>
 						
 
-					<div id="profilename">
-						<p>	{{request.user}}
-						</p>
-					</div>
+				<div id="profilename">
+					<p>	{{request.user}}</p>
 				</div>
 			</div>
-		</div>	
-	</div>
+		</div>
+	</div>	
+	
 
 	<div class="block-book fix">
 		<ul>
 			{% for content in object_list %}
-			<img src="{% static content.image.url %}">
 
 				<div class="book1">
 					<hr>
@@ -84,7 +81,7 @@
 							<img src="{{  content.image.url }}">
 						</div>
 		
-						<div class="title-author">
+						<div class="title-author" style="font-family: 'Noto Sans', sans-serif">
 							<div id="author" style="color: black;">{{ content.author }}</div>
 							<div id="title">{{ content.title }}</div>
 							<div id="bo">{{ content.bo }}</div>
@@ -92,13 +89,12 @@
 
 						<div>
 							<a class="btn" href='{{ content.book.url }}' target="_blank" >Читать</a>
-							<a href='{{ content.book.url }}' class="btn" download>Скачать</a>
+							<a class="btn" href='{{ content.book.url }}' download>Скачать</a>
 						</div>
 
 					</div>
 					<hr>
 				</div>	
-
 
 			{% endfor %}
 		</ul>

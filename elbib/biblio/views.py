@@ -77,5 +77,6 @@ class SpravkaView(View):
         return render(request, "spravka.html")
 
 class PoiskView(View):
+    model = Content
     def get(self, request):
         return render(request, "poisk.html")

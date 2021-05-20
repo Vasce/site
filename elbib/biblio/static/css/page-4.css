@@ -84,17 +84,15 @@ input :active, :hover, :focus {
 	margin-left: 10px;
 }
 
+
 hr{
 	border: none;
 	background-color:  #3d3434ad;
 	height: 2px;
 }
 
-.vert {
-
-}
-
 .cont{
+    font-family: 'Noto Sans', sans-serif;
 	padding: 10px;
 	display: inline-flex;
 }
@@ -122,10 +120,11 @@ hr{
 }
 
 
-.btn {
+ a.btn {
+    text-decoration: none;
 	display: flex;
 	margin: 10px 0  5px 10px;
-	width: 135px;
+	width: 90px;
 	justify-content: center;
     background-color:  #3d3434f3;
     border: none;
@@ -284,15 +283,15 @@ hr{
  * см: http://timpietrusky.com/advanced-checkbox-hack
  */
 
-body {
+/* body {
     -webkit-animation: bugfix infinite 1s;
 }
 
 @-webkit-keyframes bugfix {
     to {
       padding: 0;
-    }
-}
+    } */
+
 
 
 /**
@@ -401,7 +400,7 @@ body {
     font-weight: 300;
     font-size: 1.2em;
     color: #dadada;
-    width: 100%;
+    /* width: 100%; */
     text-decoration: none;
     /* плавный переход */
     -webkit-transition: color .5s ease, padding .5s ease;

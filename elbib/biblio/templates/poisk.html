@@ -11,25 +11,28 @@
 {% endblock %}
 
 {% block content %}
-    <form>
-        <input type="search" name="search_author" placeholder="Автор">
-        <input type="search" name="search_title" placeholder="Название">
-    
-        <p><select name="razdel">
-         <optgroup label="Прикладная информатика">
-          <option value="r1">Сайтостроение</option>
-          <option value="r2">Алгоритмизация</option>
-          <option value="r3">ОСиС</option>
-         </optgroup>
-         <optgroup label="Библиотечное дело">
-          <option value="u1">БИС</option>
-          <option value="u2">АСОД</option>
-          <option value="u3">БФ</option>
-         </optgroup>
+<body>
+    <form> 
+        <div class="search">
+            <input type="search" name="search_author" placeholder="Автор">
+            <input type="search" name="search_title" placeholder="Название">
+        </div>
+
+        <p><select name="razdel" class="razdel">
+            <optgroup label="Прикладная информатика">
+            <option value="r1">Сайтостроение</option>
+            <option value="r2">Алгоритмизация</option>
+            <option value="r3">ОСиС</option>
+            </optgroup>
+            <optgroup label="Библиотечное дело">
+            <option value="u1">БИС</option>
+            <option value="u2">АСОД</option>
+            <option value="u3">БФ</option>
+            </optgroup>
         </select></p>
 
-        <input type="submit" name=""> 
+        <input type="submit" name="" class="btnsearch"> 
 
     </form>
-
+</body>
 {% endblock %}
