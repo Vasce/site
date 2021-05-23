@@ -5,100 +5,23 @@ body{
 .fix{
     max-width: 1000px;
     min-width: 320px;
-    padding: 20px;
     margin: 0 auto;
     display: flex;
-    flex-wrap: nowrap;
+    align-items: center;
     justify-content: space-evenly;
+    align-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 
-#logotype{
-	display: flex;
-}
-
-.btnsearch{
-    height: 40px;
-    border-radius: 5px;
-    background: tan;
-    text-transform: uppercase;
-    text-align: center;
-    line-height: 40px;
-}
-.btnsearch:hover{
-    background: rgba(210, 180, 140, 0.493);
-}
-
-.backgr{
+h1{
     display: flex;
+    align-items: center;
     background-color: rgb(231, 215, 193);
     width: 100%;
-    margin-bottom: 50px;
-}
-
-.header-cont {
-    display: inline-flex;
-    max-width: 1000px;
-    min-width: 320px;
-    margin: 0 auto;
-}
-
-.profile{
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-#profilename{
-    display: flex;
-    text-align: right;
-    margin-left: 15px;
-    border-left: 2px solid rgb(97, 89, 73);  
-    padding-left: 10px; 
-}
-
-#profile-logo{
-    display: flex;
-    height: 40px;
-    border-radius: 100px;
-    border: 1px solid #3d3434f3;
-    margin-left: 10px;
-}
-
-#advanced_search{
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    font-size: 20px;
-    font-weight: bolder;
-}
-
-.search{
-    display: flex;
+    height: 100px;
+    margin: 0;
     justify-content: center;
-    align-content: space-between;
-    flex-direction: column;
-    width: 100%;
-}
-
-.element_search{
-    margin: 10px;
-    height: 40px;
-    font-size: 14px;
-    line-height: 16px;
-    border: 2px solid gray;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-#search{
-    display: flex;
-	background: antiquewhite;
-  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  	border-radius: 20px;
-  	padding: 5px 30px 30px;
-	height: 360px;
-    width: 450px;
 }
 
 /* меню */
