@@ -79,7 +79,7 @@ class PageView(generic.ListView):
     template_name = 'page.html'
     def get_queryset(self):
         query = self.request.GET.get('search_string')
-        return Content.objects.filter(Q(author__icontains=query) | Q(title__icontains=query))
+        return Content.objects.filter(Q(author__iexect=query) | Q(title__iexect=query))
 
 class SpravkaView(View):
     def get(self, request):
@@ -89,3 +89,8 @@ class PoiskView(View):
     model = Content
     def get(self, request):
         return render(request, "poisk.html")
+
+
+class FavoriteView(View):
+    def get(self, request):
+        return render(request, "favorite.html")

@@ -17,6 +17,10 @@ main{
 	width: 450px;
 }
 
+.button-enter{
+	text-decoration: none;
+} 
+
 input{
 	height: 40px;
 	width: 100%;
@@ -24,7 +28,6 @@ input{
 	line-height: 16px;
 	border: 2px solid gray;
 	border-radius: 5px;
-	padding: 0;
 	box-sizing:border-box;
 }
 

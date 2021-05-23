@@ -74,34 +74,6 @@ body{
     font-weight: bolder;
 }
 
-.search{
-    display: flex;
-    justify-content: center;
-    align-content: space-between;
-    flex-direction: column;
-    width: 100%;
-}
-
-.element_search{
-    margin: 10px;
-    height: 40px;
-    font-size: 14px;
-    line-height: 16px;
-    border: 2px solid gray;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-#search{
-    display: flex;
-	background: antiquewhite;
-  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  	border-radius: 20px;
-  	padding: 5px 30px 30px;
-	height: 360px;
-    width: 450px;
-}
-
 /* меню */
 .nav {
     /*  ширна произвольная, не стесняйтесь экспериментировать */

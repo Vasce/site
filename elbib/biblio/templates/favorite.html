@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+    Электронная библиотека - Поиск
+{% endblock %}
+
+{% block css %}
+	{% static 'css/favorite.css' %}
+{% endblock %}
+
+{% block content %}
+<input type="checkbox" id="nav-toggle" hidden>
+    <nav class="nav">
+        <label for="nav-toggle" class="nav-toggle" onclick></label>
+        <ul>
+            <li><a href="{% url 'poisk' %}">Расширенный поиск</a>
+            <li><a href="{% url 'main' %}">На главную</a>
+            <li><a href="#">Избранное</a> 
+            <li><a href="{% url 'spravka' %}">Справка</a> 
+            <li><a href="{% url 'logout' %}">Выход</a>
+        </ul>
+    </nav>
+    <div class="mask-content"></div>
+
+        
+    
+        <div class="backgr">
+            <div class="header-cont fix">
+                <div id="logotype">
+                    <img id="logo" src="/static/css/logo.png">
+                </div>
+
+                <div id="advanced_search">
+                    ИЗБРАННОЕ
+                </div>
+
+                <div class="profile"> 
+                    <div>
+                        <img id="profile-logo" src="/static/css/profile2.jpeg">
+                    </div>     
+    
+                    <div id="profilename">
+                        <p> {{request.user}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+{% endblock %}
