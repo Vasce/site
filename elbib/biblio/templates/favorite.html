@@ -46,7 +46,38 @@
                     </div>
                 </div>
             </div>
+
         </div>
+		<ul>
+
+			{% for content in object_list %}
+        {{content.favorite.title}}
+				<div class="book1">
+					<hr>
+
+					<div class="cont">
+						<div class="pic tetete">
+							<img src="{{  content.favorite.image.url }}">
+						</div>
+
+						<div class="title-author" style="font-family: 'Noto Sans', sans-serif">
+							<div id="author" style="color: black;">{{ content.favorite.author }}</div>
+							<div id="title">{{ content.favorite.title }}</div>
+							<div id="bo">{{ content.favorite.bo }}</div>
+						</div>
+
+						<div>
+							<a class="btn" href='{{ content.favorite.book.url }}' target="_blank" >Читать</a>
+							<a class="btn" href='{{ content.favorite.book.url }}' download>Скачать</a>
+						</div>
+
+					</div>
+					<hr>
+				</div>
+
+			{% endfor %}
+		</ul>
+	</div>
 
 
 {% endblock %}

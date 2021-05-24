@@ -1,22 +1,22 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponseRedirect
-# from django.contrib.auth.models import User
+from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.views import View
 from django.http import HttpResponseForbidden, HttpResponseNotFound, HttpResponse
 from django.views import generic
 
-from .models import Content, User
+from .models import Content, Favorite
 from django.db.models import Q
 
 # Create your views here.
 
 def add_to_favorite(request, pk):
+    if Favorite.objects.filter(user=request.user, favorite=pk).exists():
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     content = get_object_or_404(Content, pk=pk)
-    user = get_object_or_404(User, user=request.user)
-    print(user)
-    # user = request.user
-    user.favorite.add(content)
-    user.save()
+    fav = Favorite.objects.create(user=request.user, favorite=content)
+    fav.save()
+    # fav.favorite.add(content)
     return  HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 class SignInView(View):
@@ -24,14 +24,13 @@ class SignInView(View):
         return render(request, "signin.html")
 
     def post(self, request):
-        print
         username = request.POST['username']
         password = request.POST['password']
-
         user = authenticate(username=username, password=password)
-        if user:
+        print(user)
+        if user is not None:
             login(request, user)
-        
+
             return redirect(reverse("main")) #render(request, "page.html")
         else:
             return render(request, "signin.html")
@@ -79,7 +78,9 @@ class PageView(generic.ListView):
     template_name = 'page.html'
     def get_queryset(self):
         query = self.request.GET.get('search_string')
-        return Content.objects.filter(Q(author__iexect=query) | Q(title__iexect=query))
+        if query == None or query == '':
+            return None
+        return Content.objects.filter(Q(author__icontains=query) | Q(title__icontains=query))
 
 class SpravkaView(View):
     def get(self, request):
@@ -91,6 +92,11 @@ class PoiskView(View):
         return render(request, "poisk.html")
 
 
-class FavoriteView(View):
-    def get(self, request):
-        return render(request, "favorite.html")
+class FavoriteView(generic.ListView):
+    model = Favorite
+    context_object_name = 'Favorite'
+    template_name = 'favorite.html'
+    def get_queryset(self):
+        return Favorite.objects.filter(user=self.request.user)
+    # def get(self, request):
+    #     return render(request, "favorite.html")
